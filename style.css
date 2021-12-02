@@ -1,6 +1,7 @@
-/* * {
-    border: 1px solid blue;
-} */
+* {
+    /* border: 1px solid blue; */
+	box-sizing: border-box;
+}
 
 .container {
     width: 100%;
@@ -70,3 +71,36 @@ section {
 }
 
 
+/* game images */ 
+body{
+	background-image: url(images/mario-background.png);
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+
+}
+
+#cell1 {
+	width: 100%;
+}
+
+.marioImg {
+	/* background-image: url(images/mario.png); */
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	/* visibility: hidden; */
+	position:relative;
+	top:0;
+	left:0;
+}
+
+.bowserImg {
+	/* background-image: url(images/bowser.png); */
+	width: 100px;
+	height: 100px;
+	background-size: cover;
+	position: absolute;
+	z-index: 2;
+}

@@ -31,16 +31,16 @@ let counterTurn = 0
 //taking turns/choosing their cells
 function handleTurns(event) {
     clickedOn = event.target
-    console.log(counterTurn)
+    console.log("counterTurn", counterTurn)
     if(counterTurn % 2 ==0){
-        console.log("even")
-        console.log(clickedOn)
+        console.log("even", counterTurn)
+        console.log("clickedon", clickedOn)
         clickedOn.style.backgroundColor="red"
         playerOne.score.push(clickedOn.id)
         clickedOn.disabled = true
     } else {
-        console.log("odd")
-        console.log(clickedOn)
+        console.log("odd", counterTurn)
+        console.log("clickedon", clickedOn)
         clickedOn.style.backgroundColor="blue"
         playerTwo.score.push(clickedOn.id)
         clickedOn.disabled = true
@@ -138,6 +138,7 @@ function handleReset() {
         victoryText.textContent=""
         counterTurn = 0
     }
+    console.log("resetting to factory")
 }
 
 //callbacks
