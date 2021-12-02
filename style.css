@@ -1,3 +1,6 @@
+/* Font */
+@import url('http://fonts.cdnfonts.com/css/super-mario-bros-alphabet');
+
 * {
     /* border: 1px solid blue; */
 	box-sizing: border-box;
@@ -10,6 +13,11 @@
 .title {
     text-align: center;
     margin-bottom: 50px;
+	font-family: 'Super Mario Bros Alphabet', sans-serif;
+	font-size: 50px;
+	margin-top: 5px;
+	margin-bottom: 25px;
+	color: rgb(238, 44, 44);
 }
 
 
@@ -25,36 +33,38 @@
 	grid-template-columns: repeat(3, auto)
 }
 
-.square {
+.grid button {
 	width: 100px;
 	height: 100px;
 	border: 1px solid black;
     cursor:default;
-    background-color: white;
+	background-color: transparent;
 }
 
 
-.square:nth-child(1),
-.square:nth-child(2), 
-.square:nth-child(3) {
+
+
+div button:nth-child(1),
+div button:nth-child(2), 
+div button:nth-child(3) {
 	border-top: none;
 }
 
-.square:nth-child(1), 
-.square:nth-child(4), 
-.square:nth-child(7) {
+div button:nth-child(1), 
+div button:nth-child(4), 
+div button:nth-child(7) {
 	border-left: none;
 }
 
-.square:nth-child(3), 
-.square:nth-child(6), 
-.square:nth-child(9) {
+div button:nth-child(3), 
+div button:nth-child(6), 
+div button:nth-child(9) {
 	border-right: none;
 }
 
-.square:nth-child(7), 
-.square:nth-child(8), 
-.square:nth-child(9) {
+div button:nth-child(7), 
+div button:nth-child(8), 
+div button:nth-child(9) {
 	border-bottom: none;
 }
 
@@ -86,21 +96,16 @@ body{
 }
 
 .marioImg {
-	/* background-image: url(images/mario.png); */
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	/* visibility: hidden; */
-	position:relative;
-	top:0;
-	left:0;
+	background-image: url(images/mario.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 100px;
 }
 
 .bowserImg {
-	/* background-image: url(images/bowser.png); */
-	width: 100px;
+	background-image: url(images/bowser.png);
 	height: 100px;
-	background-size: cover;
-	position: absolute;
-	z-index: 2;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
+

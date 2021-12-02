@@ -1,8 +1,10 @@
 //tag selector
-var allSquares = document.querySelectorAll(".square")
+var allSquares = document.querySelectorAll(".grid > button")
 var victoryText = document.querySelector(".victory-text")
 var resetBtn = document.querySelector(".reset-Btn")
 
+
+//another method, shorter/efficient
 // var winningConditions = [
 //     [1,2,3],
 //     [4,5,6],
@@ -35,13 +37,13 @@ function handleTurns(event) {
     if(counterTurn % 2 ==0){
         console.log("even", counterTurn)
         console.log("clickedon", clickedOn)
-        clickedOn.style.backgroundColor="red"
+        clickedOn.className = "marioImg"
         playerOne.score.push(clickedOn.id)
         clickedOn.disabled = true
     } else {
         console.log("odd", counterTurn)
         console.log("clickedon", clickedOn)
-        clickedOn.style.backgroundColor="blue"
+        clickedOn.className = "bowserImg"
         playerTwo.score.push(clickedOn.id)
         clickedOn.disabled = true
 
@@ -131,8 +133,9 @@ function disableAll(){
 //reset to factory
 function handleReset() {
     for(let i=0; i < allSquares.length; i++) {
-        allSquares[i].style.backgroundColor = "white";
+        allSquares[i].style.backgroundColor = "";
         allSquares[i].disabled = false;
+        allSquares[i].className=""
         playerOne.score.pop()
         playerTwo.score.pop()
         victoryText.textContent=""
