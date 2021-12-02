@@ -1,6 +1,8 @@
 //tag selector
 var allSquares = document.querySelectorAll(".square")
 var victoryText = document.querySelector(".victory-text")
+var resetBtn = document.querySelector(".reset-Btn")
+
 
 //player info
 let playerOne = {
@@ -14,10 +16,10 @@ let playerTwo = {
 
 
 let counterTurn = 0
-let playerOneArr = []
+
 //functions
 //taking turns/choosing their cells
-function test(event){
+function handleTurns(event){
     clickedOn = event.target
     console.log(counterTurn)
     if(counterTurn % 2 ==0){
@@ -92,6 +94,8 @@ function test(event){
         victoryText.textContent = "Player 2 wins !"
         console.log("Player 2 wins with cells: 7, 8, 9")
         disableAll()
+    } else if ((playerOne.score.length + playerTwo.score.length) == 9) {
+        victoryText.textContent = "Draw"
     }
 }
 
@@ -104,8 +108,20 @@ function disableAll(){
 
 }
 
+//reset to factory
+function handleReset() {
+    for(let i=0; i < allSquares.length; i++) {
+        allSquares[i].style.backgroundColor = "white";
+        allSquares[i].disabled = false;
+        playerOne.score.pop()
+        playerTwo.score.pop()
+        victoryText.textContent=""
+    }
+}
+
 //callbacks
 allSquares.forEach(function(square){
-    square.addEventListener("click", test)
+    square.addEventListener("click", handleTurns)
 })
 
+resetBtn.addEventListener("click", handleReset)
