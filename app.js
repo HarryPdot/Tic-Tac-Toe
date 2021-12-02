@@ -4,6 +4,7 @@ var victoryText = document.querySelector(".victory-text")
 var resetBtn = document.querySelector(".reset-Btn")
 
 
+
 //player info
 let playerOne = {
         // name: "" ,
