@@ -173,7 +173,7 @@ function handleTurns(event) {
 }
 //moving the characters
 function moveMario1() {
-    let test1 = playerOne.scoreboard * 160
+    let test1 = playerOne.scoreboard * 172
     console.log("test", test1)
     let marginAdd = test1
     console.log("marginAdd", marginAdd)
