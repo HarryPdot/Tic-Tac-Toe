@@ -88,8 +88,6 @@ function handleTurns(event) {
         marioVic.style.visibility = "visible"
         playerOne.scoreboard = playerOne.scoreboard + 1
         moveMario1()
-        marioVic.style.visibility = "visible"
-        playerOne.scoreboard = playerOne.scoreboard + 1
         moveMario1()
         disableAll()
     } else if (playerOne.score.includes("cell3") && playerOne.score.includes("cell5") && playerOne.score.includes("cell7")) {
