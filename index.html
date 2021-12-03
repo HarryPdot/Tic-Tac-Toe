@@ -8,34 +8,43 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">Mario vs Bowser</h1>
-    <div class="three-sections">
-        <aside class="left-grid" id="hidingLeft">
-            <img src="images/mario-victory.png" alt="" class="marioVictory">
-            <div class="marioVictoryText">Mario <br>wins this round!!</div>
-        </aside>
-        <div class="grid">
-            <button id= "cell1" data-square="1"></button>
-            <button id= "cell2" data-square="2"></button>
-            <button id= "cell3" data-square="3"></button>
-            <button id= "cell4" data-square="4"></button>
-            <button id= "cell5" data-square="5"></button>
-            <button id= "cell6" data-square="6"></button>
-            <button id= "cell7" data-square="7"></button>
-            <button id= "cell8" data-square="8"></button>
-            <button id= "cell9" data-square="9"></button>
+    <div class="bgimg">
+        <div class="container">
+            <h1 class="title">Mario vs Bowser</h1>
+            <div class="three-sections">
+                <aside class="left-grid" id="hidingLeft">
+                    <!-- <img src="images/mario-victory.png" alt="" class="marioVictory"> -->
+                    <div class="marioVictory"></div>
+                    <div class="marioVictoryText">Mario <br>wins this round!!</div>
+                </aside>
+                <div class="grid">
+                    <button id= "cell1" data-square="1"></button>
+                    <button id= "cell2" data-square="2"></button>
+                    <button id= "cell3" data-square="3"></button>
+                    <button id= "cell4" data-square="4"></button>
+                    <button id= "cell5" data-square="5"></button>
+                    <button id= "cell6" data-square="6"></button>
+                    <button id= "cell7" data-square="7"></button>
+                    <button id= "cell8" data-square="8"></button>
+                    <button id= "cell9" data-square="9"></button>
+                </div>
+                <aside class="right-grid" id="hidingRight">
+                    <div class="bowserVictoryText">Bowser wins this round!!</div>
+                    <!-- <img src="images/bowser-victory.png" alt="" class="bowserVictory"> -->
+                    <div class="bowserVictory"></div>
+                </aside>
+            </div>
+
+            <section>
+                    <p class="victory-text"></p>
+                    <button class="reset-Btn">Next Round</button>
+            </section>
+
+            <footer class="stands">
+                <img src="images/mario-pixelated.png" alt="" class="marioStand">
+                <img src="images/bowser-pixelated.png" alt="" class="bowserStand">
+            </footer>
         </div>
-        <aside class="right-grid" id="hidingRight">
-            <div class="bowserVictoryText">Bowser wins this round!!</div>
-            <img src="images/bowser-victory.png" alt="" class="bowserVictory">
-        </aside>
-    </div>
-        <section>
-            <p class="victory-text"></p>
-            <button class="reset-Btn">Next Round</button>
-        </section>
-        
     </div>
 
 

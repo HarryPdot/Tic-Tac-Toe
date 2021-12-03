@@ -2,19 +2,20 @@
 @import url('http://fonts.cdnfonts.com/css/super-mario-bros-alphabet');
 
 * {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 	box-sizing: border-box;
 }
 
 .container {
     width: 100%;
 }
+
 /* title */
 .title {
     text-align: center;
     margin-bottom: 50px;
 	font-family: 'Super Mario Bros Alphabet', sans-serif;
-	font-size: 50px;
+	font-size: 70px;
 	margin-top: 5px;
 	margin-bottom: 25px;
 	color: rgb(238, 44, 44);
@@ -22,7 +23,7 @@
 
 .three-sections {
 	display: grid;
-	grid-template-columns: 5fr 4fr 5fr;
+	grid-template-columns: 5fr 3fr 5fr;
 }
 
 /* grid */
@@ -81,18 +82,16 @@ div button:nth-child(9) {
 
 section {
     text-align: center;
-    margin-top: 50px;
 }
 
 
 /* game images */ 
-body{
+.bgimg{
 	background-image: url(images/mario-background.png);
 	background-repeat: no-repeat;
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-
+	width: 1900px;
+	height: 760px;
+	background-size: contain;
 }
 
 #cell1 {
@@ -104,6 +103,7 @@ body{
 	background-size: contain;
 	background-repeat: no-repeat;
 	height: 100px;
+	
 }
 
 .bowserImg {
@@ -114,8 +114,10 @@ body{
 }
 
 .marioVictory {
+	background-image: url(images/mario-victory.png);
 	width: 100%;
-	float: left;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 .marioVictoryText {
@@ -126,15 +128,16 @@ body{
 }
 
 .left-grid {
-
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	visibility: hidden;
 }
 
 .bowserVictory {
+	background-image: url(images/bowser-victory.png);
 	width: 100%;
-	float: right;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 .bowserVictoryText {
@@ -145,7 +148,27 @@ body{
 }
 
 .right-grid {
+	width: 100%;
+	height: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	visibility:hidden;
 }
+
+.stands {
+	height:135px;
+	margin-top: 105px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.marioStand {
+	height: 135px;
+	margin-left: 25px;
+
+}
+
+.bowserStand {
+	height: 135px;
+	margin-left: 800px;
+} 
