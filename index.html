@@ -10,7 +10,11 @@
 <body>
     <div class="container">
         <h1 class="title">Mario vs Bowser</h1>
-
+    <div class="three-sections">
+        <aside class="left-grid" id="hidingLeft">
+            <img src="images/mario-victory.png" alt="" class="marioVictory">
+            <div class="marioVictoryText">Mario <br>wins this round!!</div>
+        </aside>
         <div class="grid">
             <button id= "cell1" data-square="1"></button>
             <button id= "cell2" data-square="2"></button>
@@ -22,10 +26,14 @@
             <button id= "cell8" data-square="8"></button>
             <button id= "cell9" data-square="9"></button>
         </div>
-
+        <aside class="right-grid" id="hidingRight">
+            <div class="bowserVictoryText">Bowser wins this round!!</div>
+            <img src="images/bowser-victory.png" alt="" class="bowserVictory">
+        </aside>
+    </div>
         <section>
             <p class="victory-text"></p>
-            <button class="reset-Btn">Reset</button>
+            <button class="reset-Btn">Next Round</button>
         </section>
         
     </div>

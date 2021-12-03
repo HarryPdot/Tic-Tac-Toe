@@ -2,7 +2,7 @@
 @import url('http://fonts.cdnfonts.com/css/super-mario-bros-alphabet');
 
 * {
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
 	box-sizing: border-box;
 }
 
@@ -20,6 +20,10 @@
 	color: rgb(238, 44, 44);
 }
 
+.three-sections {
+	display: grid;
+	grid-template-columns: 5fr 4fr 5fr;
+}
 
 /* grid */
 .grid {
@@ -109,3 +113,39 @@ body{
 	background-repeat: no-repeat;
 }
 
+.marioVictory {
+	width: 100%;
+	float: left;
+}
+
+.marioVictoryText {
+	font-size: 50px;
+	text-align: center;
+	padding-top: 50px;
+	font-weight: bold;
+}
+
+.left-grid {
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	visibility: hidden;
+}
+
+.bowserVictory {
+	width: 100%;
+	float: right;
+}
+
+.bowserVictoryText {
+	font-size: 50px;
+	text-align: center;
+	padding-top: 50px;
+	font-weight: bold;
+}
+
+.right-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	visibility:hidden;
+}

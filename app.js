@@ -2,6 +2,8 @@
 var allSquares = document.querySelectorAll(".grid > button")
 var victoryText = document.querySelector(".victory-text")
 var resetBtn = document.querySelector(".reset-Btn")
+var marioVic = document.querySelector(".left-grid")
+var bowserVic = document.querySelector(".right-grid")
 
 
 //another method, shorter/efficient
@@ -19,11 +21,13 @@ var resetBtn = document.querySelector(".reset-Btn")
 //player info
 let playerOne = {
         // name: "" ,
-        score: []
+        score: [],
+        scoreboard: 0
 }
 let playerTwo = {
         // name: "" ,
-        score: []
+        score: [],
+        scoreboard: 0
 }
 
 
@@ -53,71 +57,72 @@ function handleTurns(event) {
 
 
     if (playerOne.score.includes("cell1") && playerOne.score.includes("cell2") && playerOne.score.includes("cell3")) {
-        victoryText.textContent = "Player 1 wins !"
         console.log("Player 1 wins with cells: 1, 2, 3")
+        marioVic.style.visibility = "visible"
         disableAll()
     } else if (playerOne.score.includes("cell1") && playerOne.score.includes("cell4") && playerOne.score.includes("cell7")) {
-        victoryText.textContent = "Player 1 wins !"
         console.log("Player 1 wins with cells: 1, 4, 7")
+        marioVic.style.visibility = "visible"
         disableAll()
     } else if (playerOne.score.includes("cell1") && playerOne.score.includes("cell5") && playerOne.score.includes("cell9")) {
-        victoryText.textContent = "Player 1 wins !"
         console.log("Player 1 wins with cells: 1, 5, 9")
+        marioVic.style.visibility = "visible"
         disableAll()
     } else if (playerOne.score.includes("cell2") && playerOne.score.includes("cell5") && playerOne.score.includes("cell8")) {
-        victoryText.textContent = "Player 1 wins !"
         console.log("Player 1 wins with cells: 2, 5, 8")
+        marioVic.style.visibility = "visible"
+        marioVic.style.visibility = "visible"
         disableAll()
     } else if (playerOne.score.includes("cell3") && playerOne.score.includes("cell5") && playerOne.score.includes("cell7")) {
-        victoryText.textContent = "Player 1 wins !"
         console.log("Player 1 wins with cells: 3, 5, 7")
+        marioVic.style.visibility = "visible"
         disableAll()
     } else if (playerOne.score.includes("cell3") && playerOne.score.includes("cell6") && playerOne.score.includes("cell9")) {
-        victoryText.textContent = "Player 1 wins !"
         console.log("Player 1 wins with cells: 3, 6, 9")
+        marioVic.style.visibility = "visible"
         disableAll() 
     } else if (playerOne.score.includes("cell4") && playerOne.score.includes("cell5") && playerOne.score.includes("cell6")) {
-        victoryText.textContent = "Player 1 wins !"
         console.log("Player 1 wins with cells: 4, 5, 6")
+        marioVic.style.visibility = "visible"
         disableAll()
     } else if (playerOne.score.includes("cell7") && playerOne.score.includes("cell8") && playerOne.score.includes("cell9")) {
-        victoryText.textContent = "Player 1 wins !"
         console.log("Player 1 wins with cells: 7, 8, 9")
+        marioVic.style.visibility = "visible"
         disableAll()
     } else if (playerTwo.score.includes("cell1") && playerTwo.score.includes("cell2") && playerTwo.score.includes("cell3")) {
-        victoryText.textContent = "Player 2 wins !"
         console.log("Player 2 wins with cells: 1, 2, 3")
+        bowserVic.style.visibility = "visible"
         disableAll()
     } else if (playerTwo.score.includes("cell1") && playerTwo.score.includes("cell4") && playerTwo.score.includes("cell7")) {
-        victoryText.textContent = "Player 2 wins !"
         console.log("Player 2 wins with cells: 1, 4, 7")
+        bowserVic.style.visibility = "visible"
         disableAll()
     } else if (playerTwo.score.includes("cell1") && playerTwo.score.includes("cell5") && playerTwo.score.includes("cell9")) {
-        victoryText.textContent = "Player 2 wins !"
         console.log("Player 2 wins with cells: 1, 5, 9")
+        bowserVic.style.visibility = "visible"
         disableAll()
     } else if (playerTwo.score.includes("cell2") && playerTwo.score.includes("cell5") && playerTwo.score.includes("cell8")) {
-        victoryText.textContent = "Player 2 wins !"
         console.log("Player 2 wins with cells: 2, 5, 8")
+        bowserVic.style.visibility = "visible"
         disableAll()
     } else if (playerTwo.score.includes("cell3") && playerTwo.score.includes("cell5") && playerTwo.score.includes("cell7")) {
-        victoryText.textContent = "Player 2 wins !"
         console.log("Player 2 wins with cells: 3, 5, 7")
+        bowserVic.style.visibility = "visible"
         disableAll()
     } else if (playerTwo.score.includes("cell3") && playerTwo.score.includes("cell6") && playerTwo.score.includes("cell9")) {
-        victoryText.textContent = "Player 2 wins !"
         console.log("Player 2 wins with cells: 3, 6, 9")
+        bowserVic.style.visibility = "visible"
         disableAll()
     } else if (playerTwo.score.includes("cell4") && playerTwo.score.includes("cell5") && playerTwo.score.includes("cell6")) {
-        victoryText.textContent = "Player 2 wins !"
         console.log("Player 2 wins with cells: 4, 5, 6")
+        bowserVic.style.visibility = "visible"
         disableAll()
     } else if (playerTwo.score.includes("cell7") && playerTwo.score.includes("cell8") && playerTwo.score.includes("cell9")) {
-        victoryText.textContent = "Player 2 wins !"
         console.log("Player 2 wins with cells: 7, 8, 9")
+        bowserVic.style.visibility = "visible"
         disableAll()
     } else if ((playerOne.score.length + playerTwo.score.length) == 9) {
-        victoryText.textContent = "Draw"
+        victoryText.textContent="Draw"
     }
 }
 
@@ -138,8 +143,10 @@ function handleReset() {
         allSquares[i].className=""
         playerOne.score.pop()
         playerTwo.score.pop()
-        victoryText.textContent=""
+        
         counterTurn = 0
+        marioVic.style.visibility = "hidden"
+        bowserVic.style.visibility = "hidden"
     }
     console.log("resetting to factory")
 }
