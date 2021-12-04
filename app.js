@@ -1,5 +1,5 @@
 //tag selector
-var allSquares = document.querySelectorAll(".grid > button")
+var allSquares = document.querySelectorAll("div > button ")
 var victoryText = document.querySelector(".victory-text")
 var nextRoundBtn = document.querySelector(".next-round")
 var marioVic = document.querySelector(".left-grid")
