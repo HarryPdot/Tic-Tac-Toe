@@ -1,12 +1,12 @@
 //tag selector
 var allSquares = document.querySelectorAll(".grid > button")
 var victoryText = document.querySelector(".victory-text")
-var resetBtn = document.querySelector(".reset-Btn")
+var nextRoundBtn = document.querySelector(".next-round")
 var marioVic = document.querySelector(".left-grid")
 var bowserVic = document.querySelector(".right-grid")
 var moveMario = document.querySelector(".marioStand")
 var moveBowser = document.querySelector(".bowserStand")
-
+var resetBtn = document.querySelector(".reset-Btn")
 
 //another method, shorter/efficient
 // var winningConditions = [
@@ -31,6 +31,9 @@ let playerTwo = {
 
 }
 
+//dice possibilities
+    let diceChance = ["marioPOne", "bowserPOne", "marioMOne", "bowserMOne", "marioPTwo", "bowserPTwo"]
+
 
 let counterTurn = 0
 //functions
@@ -53,16 +56,6 @@ function handleTurns(event) {
 
     }
     counterTurn = counterTurn + 1
-
-    if(playerOne.scoreboard === 5) {
-
-    }
-    if(playerTwo.scoreboard === 5) {
-
-    }
-
-
-
 
     //win conditions
     if (playerOne.score.includes("cell1") && playerOne.score.includes("cell2") && playerOne.score.includes("cell3")) {
@@ -163,10 +156,20 @@ function handleTurns(event) {
         moveBowser1()
         disableAll()
     } else if ((playerOne.score.length + playerTwo.score.length) == 9) {
-        victoryText.textContent="Draw"
+        console.log("draw")
+        nextRoundBtn.style.visibility = "visible"
     }
 
-    console.log("scoreboard",playerOne.scoreboard * 160)
+    console.log("scoreboard",playerOne.scoreboard)
+
+    //when a player gets 5 wins
+    if(playerOne.scoreboard === 5) {
+        nextRoundBtn.style.display = "none";
+        resetBtn.style.display = "inline-block"
+    } else if(playerTwo.scoreboard === 5){
+        nextRoundBtn.style.display = "none";
+        resetBtn.style.display = "inline-block"
+    }
 
 }
 //moving the characters
@@ -189,36 +192,66 @@ function moveBowser1() {
 }
 
 
-
-
-function disableAll(){
+function disableAll() {
     let i = 0
     while(i < allSquares.length) {
         allSquares[i].disabled = true;
         i++;
     }
+    nextRoundBtn.style.visibility = "visible"
 
 }
 
-//reset to factory
-function handleReset() {
+//reset the grid, onto the next round
+function handleNextRound() {
     for(let i=0; i < allSquares.length; i++) {
         allSquares[i].style.backgroundColor = "";
         allSquares[i].disabled = false;
         allSquares[i].className=""
         playerOne.score.pop()
         playerTwo.score.pop()
-        
         counterTurn = 0
         marioVic.style.visibility = "hidden"
         bowserVic.style.visibility = "hidden"
+        nextRoundBtn.style.visibility = "hidden"
     }
     console.log("resetting to factory")
 }
 
+//reset to factory
+function handleReset () {
+    for(let i=0; i < allSquares.length; i++) {
+        allSquares[i].style.backgroundColor = "";
+        allSquares[i].disabled = false;
+        allSquares[i].className=""
+        playerOne.score.pop()
+        playerTwo.score.pop()
+        counterTurn = 0
+        marioVic.style.visibility = "hidden"
+        bowserVic.style.visibility = "hidden"
+        playerOne.scoreboard = 0
+        playerTwo.scoreboard = 0
+        resetBtn.style.display= "none"
+        nextRoundBtn.style.display = "inline-block"
+        nextRoundBtn.style.visibility = "hidden"
+        moveBowser1()
+        moveMario1()
+
+    }
+}
+
+//dice when it is a tie
+function dice() {
+    let diceRandom = Math.floor(Math.random() * diceChance.length)
+    diceChancePicked = diceChance[diceRandom]
+}
+
+
+
 //callbacks
-allSquares.forEach(function(square){
+allSquares.forEach(function(square) {
     square.addEventListener("click", handleTurns)
 })
 
+nextRoundBtn.addEventListener("click", handleNextRound)
 resetBtn.addEventListener("click", handleReset)

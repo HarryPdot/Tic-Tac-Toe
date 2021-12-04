@@ -1,9 +1,38 @@
 /* Font */
 @import url('http://fonts.cdnfonts.com/css/super-mario-bros-alphabet');
 
+@-webkit-keyframes scale-up-center {
+	0% {
+	  -webkit-transform: scale(0.5);
+			  transform: scale(0.5);
+	}
+	100% {
+	  -webkit-transform: scale(1);
+			  transform: scale(1);
+	}
+  }
+  @keyframes scale-up-center {
+	0% {
+	  -webkit-transform: scale(0.5);
+			  transform: scale(0.5);
+	}
+	100% {
+	  -webkit-transform: scale(1);
+			  transform: scale(1);
+	}
+  }
+  
+
 * {
     /* border: 1px solid blue; */
 	box-sizing: border-box;
+}
+
+html, 
+body {
+	margin: 0;
+	padding: 0;
+	background-color: rgb(106,136,253);
 }
 
 .container {
@@ -42,7 +71,7 @@
 	width: 100px;
 	height: 100px;
 	border: 1px solid black;
-    cursor:default;
+    cursor:pointer;
 	background-color: transparent;
 }
 
@@ -74,10 +103,21 @@ div button:nth-child(9) {
 }
 
 /* reset button */
-.reset-Btn {
+.reset-Btn, 
+.next-round {
     text-align: center;
     width: 100px;
     height: 50px;
+	cursor:pointer;
+}
+
+.reset-Btn {
+	display: none;
+
+}
+
+.next-round {
+	visibility: hidden;
 }
 
 section {
@@ -103,6 +143,8 @@ section {
 	background-size: contain;
 	background-repeat: no-repeat;
 	height: 100px;
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	
 }
 
@@ -111,6 +153,8 @@ section {
 	height: 100px;
 	background-size: contain;
 	background-repeat: no-repeat;
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .marioVictory {
@@ -138,6 +182,7 @@ section {
 	width: 100%;
 	background-size: contain;
 	background-repeat: no-repeat;
+
 }
 
 .bowserVictoryText {
@@ -145,6 +190,8 @@ section {
 	text-align: center;
 	padding-top: 50px;
 	font-weight: bold;
+	-webkit-animation: flip-2-ver-left-fwd 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	animation: flip-2-ver-left-fwd 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
 
 .right-grid {
