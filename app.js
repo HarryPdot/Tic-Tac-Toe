@@ -7,6 +7,9 @@ var bowserVic = document.querySelector(".right-grid")
 var moveMario = document.querySelector(".marioStand")
 var moveBowser = document.querySelector(".bowserStand")
 var resetBtn = document.querySelector(".reset-Btn")
+var marioBgm = document.querySelector("#mario-bgm")
+var playMusic = document.querySelector(".playSong")
+
 
 //another method, shorter/efficient
 // var winningConditions = [
@@ -32,7 +35,7 @@ let playerTwo = {
 }
 
 //dice possibilities
-    let diceChance = ["marioPOne", "bowserPOne", "marioMOne", "bowserMOne", "marioPTwo", "bowserPTwo"]
+let diceChance = ["marioPOne", "bowserPOne", "marioMOne", "bowserMOne"]
 
 
 let counterTurn = 0
@@ -158,6 +161,7 @@ function handleTurns(event) {
     } else if ((playerOne.score.length + playerTwo.score.length) == 9) {
         console.log("draw")
         nextRoundBtn.style.visibility = "visible"
+        dice()
     }
 
     console.log("scoreboard",playerOne.scoreboard)
@@ -242,8 +246,25 @@ function handleReset () {
 
 //dice when it is a tie
 function dice() {
-    let diceRandom = Math.floor(Math.random() * diceChance.length)
-    diceChancePicked = diceChance[diceRandom]
+    let diceRandom = Math.floor(Math.random() * 4)
+    console.log("dice", diceRandom)
+    if(diceRandom === 0){
+        playerOne.scoreboard = playerOne.scoreboard + 1
+        moveMario1()
+    } else if(diceRandom === 1){
+        playerOne.scoreboard = playerTwo.scoreboard + 1
+        moveBowser1()
+    } else if(diceRandom === 2){
+        playerOne.scoreboard = playerTwo.scoreboard - 1
+        moveMario1()
+    } else if(diceRandom === 3){
+        playerOne.scoreboard = playerTwo.scoreboard - 1
+        moveBowser1()
+    }
+}
+
+function playBgm() {
+    marioBgm.play()
 }
 
 

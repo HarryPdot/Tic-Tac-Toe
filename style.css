@@ -45,13 +45,13 @@ body {
     margin-bottom: 50px;
 	font-family: 'Super Mario Bros Alphabet', sans-serif;
 	font-size: 62px;
-	margin-top: 5px;
+
 	margin-bottom: 25px;
 	color: rgb(238, 44, 44);
 }
 
 
-div button {
+.grid div button {
 	width: 100px;
 	height: 100px;
 	background-color: transparent;
