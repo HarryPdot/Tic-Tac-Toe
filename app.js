@@ -11,7 +11,8 @@ var marioBgm = document.querySelector("#mario-bgm")
 var playMusic = document.querySelector(".playSong")
 var diceBtn = document.querySelector("#dice-Btn")
 var diceResults = document.querySelector("#dice-result")
-
+var marioEnding = document.querySelector("#marioWin")
+var bowserEnding = document.querySelector("#bowserWin")
 
 //another method, shorter/efficient
 // var winningConditions = [
@@ -46,6 +47,7 @@ let counterTurn = 0
 function handleTurns(event) {
     clickedOn = event.target
     console.log("counterTurn", counterTurn)
+
     if(counterTurn % 2 ==0){
         console.log("even", counterTurn)
         console.log("clickedon", clickedOn)
@@ -171,14 +173,39 @@ function handleTurns(event) {
 
     //when a player gets 5 wins
     if(playerOne.scoreboard === 5) {
-        nextRoundBtn.style.display = "none";
-        resetBtn.style.display = "inline-block"
+;
+        setTimeout(function(){
+            resetBtn.style.display = "inline-block"
+            nextRoundBtn.style.display = "none"
+        }, 1500)
+        marioWin()
+
     } else if(playerTwo.scoreboard === 5){
-        nextRoundBtn.style.display = "none";
-        resetBtn.style.display = "inline-block"
+        setTimeout(function(){
+            resetBtn.style.display = "inline-block"
+            nextRoundBtn.style.display = "none"
+        }, 1500)
+        bowserWin()
     }
 
 }
+
+//when mario wins 5 times
+function marioWin() {
+    setTimeout(function(){
+        marioEnding.style.display= "inline-block";
+        moveMario.style.display="none"
+    }, 1500)
+}
+
+//when bowser wins 5 times
+function bowserWin() {
+    setTimeout(function(){
+        bowserEnding.style.display= "inline-block";
+        moveBowser.style.display="none"
+    }, 1500)
+}
+
 //moving the characters
 function moveMario1() {
     let test1 = playerOne.scoreboard * 172
@@ -186,7 +213,15 @@ function moveMario1() {
     let marginAdd = test1
     console.log("marginAdd", marginAdd)
     moveMario.style.marginLeft = marginAdd+"px"
-    moveMario.style.transition ="2s"
+    moveMario.style.transition = "1.5s"
+    moveMario.style.transitionTimingFunction ="steps(6,end)"
+    nextRoundBtn.style.visibility = "hidden"
+    if(playerOne.scoreboard !== 0){
+        console.log("adsf")
+        setTimeout(function(){
+            nextRoundBtn.style.visibility = "visible"
+        }, 1500)
+    }
 }
 
 function moveBowser1() {
@@ -195,7 +230,15 @@ function moveBowser1() {
     let marginAdd = test1
     console.log("marginAdd", marginAdd)
     moveBowser.style.marginLeft = marginAdd+"px"
-    moveBowser.style.transition ="2s"
+    moveBowser.style.transition = "1.5s"
+    moveBowser.style.transitionTimingFunction ="steps(6,end)"
+    nextRoundBtn.style.visibility = "hidden"
+    if(playerTwo.scoreboard !== 0){
+        console.log("adsf")
+        setTimeout(function(){
+            nextRoundBtn.style.visibility = "visible"
+        }, 1500)
+    }
 }
 
 
@@ -205,7 +248,7 @@ function disableAll() {
         allSquares[i].disabled = true;
         i++;
     }
-    nextRoundBtn.style.visibility = "visible"
+    // nextRoundBtn.style.visibility = "visible"
 
 }
 
@@ -241,15 +284,15 @@ function handleReset () {
         resetBtn.style.display= "none"
         nextRoundBtn.style.display = "inline-block"
         nextRoundBtn.style.visibility = "hidden"
+        moveMario.style.display = "inline-block"
+        moveBowser.style.display = "inline-block"
         moveBowser1()
         moveMario1()
-
     }
 }
 
 //dice when it is a tie
 function dice() {
-
     let diceRandom = Math.floor(Math.random() * 4)
     console.log("dice", diceRandom)
     console.log(diceChance[diceRandom])
@@ -280,31 +323,34 @@ function dice() {
 
 function marioPlusOne() {
     diceResults.className ="marioPlusOne"
-    setTimeout(turnoffResult, 2000)
+    setTimeout(turnoffResult, 4000)
     nextRoundBtn.style.visibility = "hidden"
 }
 
 function bowserPlusOne() {
     diceResults.className ="bowserPlusOne"
-    setTimeout(turnoffResult, 2000)
+    setTimeout(turnoffResult, 4000)
     nextRoundBtn.style.visibility = "hidden"
 }
 
 function marioMinusOne() {
     diceResults.className ="marioMinusOne"
-    setTimeout(turnoffResult, 2000)
+    setTimeout(turnoffResult, 4000)
     nextRoundBtn.style.visibility = "hidden"
 }
 
 function bowserMinusOne() {
     diceResults.className ="bowserMinusOne"
-    setTimeout(turnoffResult, 2000)
+    setTimeout(turnoffResult, 4000)
     nextRoundBtn.style.visibility = "hidden"
 }
 
 function turnoffResult() {
     diceResults.className = ""
-    nextRoundBtn.style.visibility = "visible"
+    setTimeout(function(){
+        nextRoundBtn.style.visibility = "visible"
+    },10)
+
 }
 
 //callbacks
