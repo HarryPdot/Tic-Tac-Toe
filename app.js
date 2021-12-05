@@ -7,13 +7,13 @@ var bowserVic = document.querySelector(".right-grid")
 var moveMario = document.querySelector(".marioStand")
 var moveBowser = document.querySelector(".bowserStand")
 var resetBtn = document.querySelector(".reset-Btn")
-var marioBgm = document.querySelector("#mario-bgm")
 var playMusic = document.querySelector(".playSong")
 var diceBtn = document.querySelector("#dice-Btn")
 var diceResults = document.querySelector("#dice-result")
 var marioEnding = document.querySelector("#marioWin")
 var bowserEnding = document.querySelector("#bowserWin")
-
+var musicBgm = document.querySelector(".music")
+var audio = new Audio("sounds/mario-bros-theme.mp3")
 //another method, shorter/efficient
 // var winningConditions = [
 //     [1,2,3],
@@ -39,9 +39,8 @@ let playerTwo = {
 
 //dice possibilities
 let diceChance = ["marioPOne", "bowserPOne", "marioMOne", "bowserMOne"]
-
-
 let counterTurn = 0
+
 //functions
 //taking turns/choosing their cells
 function handleTurns(event) {
@@ -87,7 +86,6 @@ function handleTurns(event) {
         console.log("Player 1 wins with cells: 2, 5, 8")
         marioVic.style.visibility = "visible"
         playerOne.scoreboard = playerOne.scoreboard + 1
-        moveMario1()
         moveMario1()
         disableAll()
     } else if (playerOne.score.includes("cell3") && playerOne.score.includes("cell5") && playerOne.score.includes("cell7")) {
@@ -353,6 +351,11 @@ function turnoffResult() {
 
 }
 
+function playBgm(){
+    audio.play()
+}
+
+
 //callbacks
 allSquares.forEach(function(square) {
     square.addEventListener("click", handleTurns)
@@ -360,3 +363,4 @@ allSquares.forEach(function(square) {
 
 nextRoundBtn.addEventListener("click", handleNextRound)
 resetBtn.addEventListener("click", handleReset)
+musicBgm.addEventListener("click", playBgm)

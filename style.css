@@ -223,6 +223,7 @@ section {
 	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	
+	
 }
 
 .bowserImg {
@@ -423,4 +424,13 @@ section {
 	-webkit-animation: scale-down-bottom 2s linear both;
 	animation: scale-down-bottom 2s linear both;
 	display:none;
+}
+
+
+.music {
+	position: absolute;
+	top: 55px;
+	left: 10px;
+	width: 20px;
+	height: 20px;
 }
