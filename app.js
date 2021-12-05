@@ -59,8 +59,8 @@ function handleTurns(event) {
         clickedOn.className = "bowserImg"
         playerTwo.score.push(clickedOn.id)
         clickedOn.disabled = true
-
     }
+
     counterTurn = counterTurn + 1
 
     //win conditions
@@ -171,13 +171,11 @@ function handleTurns(event) {
 
     //when a player gets 5 wins
     if(playerOne.scoreboard === 5) {
-;
         setTimeout(function(){
             resetBtn.style.display = "inline-block"
             nextRoundBtn.style.display = "none"
         }, 1500)
         marioWin()
-
     } else if(playerTwo.scoreboard === 5){
         setTimeout(function(){
             resetBtn.style.display = "inline-block"
@@ -185,7 +183,6 @@ function handleTurns(event) {
         }, 1500)
         bowserWin()
     }
-
 }
 
 //when mario wins 5 times
@@ -204,7 +201,7 @@ function bowserWin() {
     }, 1500)
 }
 
-//moving the characters
+//moving mario
 function moveMario1() {
     let test1 = playerOne.scoreboard * 172
     console.log("test", test1)
@@ -221,7 +218,7 @@ function moveMario1() {
         }, 1500)
     }
 }
-
+//moving bowser
 function moveBowser1() {
     let test1 = 800 - (playerTwo.scoreboard * 160)
     console.log("test", test1)
@@ -238,8 +235,7 @@ function moveBowser1() {
         }, 1500)
     }
 }
-
-
+//disabling the cells
 function disableAll() {
     let i = 0
     while(i < allSquares.length) {
@@ -247,7 +243,6 @@ function disableAll() {
         i++;
     }
     // nextRoundBtn.style.visibility = "visible"
-
 }
 
 //reset the grid, onto the next round
@@ -318,7 +313,7 @@ function dice() {
     moveMario1()
     moveBowser1()
 }
-
+//possible outcomes from dice
 function marioPlusOne() {
     diceResults.className ="marioPlusOne"
     setTimeout(turnoffResult, 4000)
@@ -351,6 +346,7 @@ function turnoffResult() {
 
 }
 
+//playing the music
 function playBgm(){
     audio.play()
 }
