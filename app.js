@@ -248,19 +248,19 @@ function handleReset () {
 function dice() {
     let diceRandom = Math.floor(Math.random() * 4)
     console.log("dice", diceRandom)
+    console.log(diceChance[diceRandom])
     if(diceRandom === 0){
         playerOne.scoreboard = playerOne.scoreboard + 1
-        moveMario1()
-    } else if(diceRandom === 1){
-        playerOne.scoreboard = playerTwo.scoreboard + 1
-        moveBowser1()
-    } else if(diceRandom === 2){
-        playerOne.scoreboard = playerTwo.scoreboard - 1
-        moveMario1()
-    } else if(diceRandom === 3){
-        playerOne.scoreboard = playerTwo.scoreboard - 1
-        moveBowser1()
+    } else if(diceRandom === 1) {
+        playerTwo.scoreboard = playerTwo.scoreboard + 1
+    } else if(diceRandom === 2 && playerOne.scoreboard > 0) {
+        playerOne.scoreboard = playerOne.scoreboard - 1
+    } else if(diceRandom === 3 && playerTwo.scoreboard > 0) {
+        playerTwo.scoreboard = playerTwo.scoreboard - 1
     }
+    console.log("dice scoreboard", playerOne.scoreboard)
+    moveMario1()
+    moveBowser1()
 }
 
 function playBgm() {
