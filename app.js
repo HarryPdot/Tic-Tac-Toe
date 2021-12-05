@@ -10,7 +10,7 @@ var resetBtn = document.querySelector(".reset-Btn")
 var marioBgm = document.querySelector("#mario-bgm")
 var playMusic = document.querySelector(".playSong")
 var diceBtn = document.querySelector("#dice-Btn")
-
+var diceResults = document.querySelector("#dice-result")
 
 
 //another method, shorter/efficient
@@ -250,6 +250,7 @@ function handleReset () {
 //dice when it is a tie
 function dice() {
     diceBtn.style.display = "none"
+    redMushroom()
     let diceRandom = Math.floor(Math.random() * 4)
     console.log("dice", diceRandom)
     console.log(diceChance[diceRandom])
@@ -268,10 +269,10 @@ function dice() {
     moveBowser1()
 }
 
-function handleDice(){
-    diceBtn.className="dice"
-}
+function redMushroom() {
+    diceResults.className ="diceResult"
 
+}
 
 
 //callbacks
@@ -281,4 +282,3 @@ allSquares.forEach(function(square) {
 
 nextRoundBtn.addEventListener("click", handleNextRound)
 resetBtn.addEventListener("click", handleReset)
-// diceBtn.addEventListener("click", handleDice)
