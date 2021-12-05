@@ -9,6 +9,8 @@ var moveBowser = document.querySelector(".bowserStand")
 var resetBtn = document.querySelector(".reset-Btn")
 var marioBgm = document.querySelector("#mario-bgm")
 var playMusic = document.querySelector(".playSong")
+var diceBtn = document.querySelector("#dice-Btn")
+
 
 
 //another method, shorter/efficient
@@ -161,7 +163,8 @@ function handleTurns(event) {
     } else if ((playerOne.score.length + playerTwo.score.length) == 9) {
         console.log("draw")
         nextRoundBtn.style.visibility = "visible"
-        dice()
+        diceBtn.className="dice"
+        setTimeout(dice,2000)
     }
 
     console.log("scoreboard",playerOne.scoreboard)
@@ -246,9 +249,11 @@ function handleReset () {
 
 //dice when it is a tie
 function dice() {
+    diceBtn.style.display = "none"
     let diceRandom = Math.floor(Math.random() * 4)
     console.log("dice", diceRandom)
     console.log(diceChance[diceRandom])
+    // for(let i=0;)
     if(diceRandom === 0){
         playerOne.scoreboard = playerOne.scoreboard + 1
     } else if(diceRandom === 1) {
@@ -263,8 +268,8 @@ function dice() {
     moveBowser1()
 }
 
-function playBgm() {
-    marioBgm.play()
+function handleDice(){
+    diceBtn.className="dice"
 }
 
 
@@ -276,3 +281,4 @@ allSquares.forEach(function(square) {
 
 nextRoundBtn.addEventListener("click", handleNextRound)
 resetBtn.addEventListener("click", handleReset)
+// diceBtn.addEventListener("click", handleDice)
