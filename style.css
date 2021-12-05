@@ -280,12 +280,51 @@ section {
 
 }
 
-.diceResult {
-	background-image: url(images/red-mushroom.png);
+.marioPlusOne {
+	background-image: url(images/mario-plusOne.png);
 	position: absolute;
 	display: inline-block;
-	height: 200px;
-	width: 200px;
+	height: 350px;
+	width: 350px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	top: 300px;
+	left: 850px;
+}
+
+.bowserPlusOne {
+	background-image: url(images/bowser-plusOne.png);
+	position: absolute;
+	display: inline-block;
+	height: 350px;
+	width: 350px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	top: 300px;
+	left: 850px;
+}
+
+.marioMinusOne {
+	background-image: url(images/mario-minusOne.png);
+	position: absolute;
+	display: inline-block;
+	height: 350px;
+	width: 350px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	top: 300px;
+	left: 850px;
+}
+
+.bowserMinusOne {
+	background-image: url(images/bowser-minusOne.png);
+	position: absolute;
+	display: inline-block;
+	height: 350px;
+	width: 350px;
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;

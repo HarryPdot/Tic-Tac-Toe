@@ -162,7 +162,7 @@ function handleTurns(event) {
         disableAll()
     } else if ((playerOne.score.length + playerTwo.score.length) == 9) {
         console.log("draw")
-        nextRoundBtn.style.visibility = "visible"
+        nextRoundBtn.style.visibility = "hidden"
         diceBtn.className="dice"
         setTimeout(dice,2000)
     }
@@ -249,31 +249,63 @@ function handleReset () {
 
 //dice when it is a tie
 function dice() {
-    diceBtn.style.display = "none"
-    redMushroom()
+
     let diceRandom = Math.floor(Math.random() * 4)
     console.log("dice", diceRandom)
     console.log(diceChance[diceRandom])
-    // for(let i=0;)
+    diceBtn.className = ""
     if(diceRandom === 0){
         playerOne.scoreboard = playerOne.scoreboard + 1
+        marioPlusOne()
     } else if(diceRandom === 1) {
         playerTwo.scoreboard = playerTwo.scoreboard + 1
+        bowserPlusOne()
     } else if(diceRandom === 2 && playerOne.scoreboard > 0) {
         playerOne.scoreboard = playerOne.scoreboard - 1
+        marioMinusOne()
     } else if(diceRandom === 3 && playerTwo.scoreboard > 0) {
         playerTwo.scoreboard = playerTwo.scoreboard - 1
+        bowserMinusOne()
+    }  else if(diceRandom === 2 && playerOne.scoreboard === 0) {
+        nextRoundBtn.style.visibility = "visible"
+        marioMinusOne()
+    }  else if(diceRandom === 3 && playerTwo.scoreboard === 0) {
+        nextRoundBtn.style.visibility = "visible"
+        bowserMinusOne()
     }
     console.log("dice scoreboard", playerOne.scoreboard)
     moveMario1()
     moveBowser1()
 }
 
-function redMushroom() {
-    diceResults.className ="diceResult"
-
+function marioPlusOne() {
+    diceResults.className ="marioPlusOne"
+    setTimeout(turnoffResult, 2000)
+    nextRoundBtn.style.visibility = "hidden"
 }
 
+function bowserPlusOne() {
+    diceResults.className ="bowserPlusOne"
+    setTimeout(turnoffResult, 2000)
+    nextRoundBtn.style.visibility = "hidden"
+}
+
+function marioMinusOne() {
+    diceResults.className ="marioMinusOne"
+    setTimeout(turnoffResult, 2000)
+    nextRoundBtn.style.visibility = "hidden"
+}
+
+function bowserMinusOne() {
+    diceResults.className ="bowserMinusOne"
+    setTimeout(turnoffResult, 2000)
+    nextRoundBtn.style.visibility = "hidden"
+}
+
+function turnoffResult() {
+    diceResults.className = ""
+    nextRoundBtn.style.visibility = "visible"
+}
 
 //callbacks
 allSquares.forEach(function(square) {
