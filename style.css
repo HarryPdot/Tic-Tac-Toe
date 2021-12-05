@@ -427,10 +427,26 @@ section {
 }
 
 
-.music {
+.musicPlay {
+	background-image: url(images/playbutton.png);
 	position: absolute;
 	top: 55px;
 	left: 10px;
 	width: 20px;
 	height: 20px;
+	background-size: contain;
+	background-color: transparent;
+	border:none;
+}
+
+.musicPause {
+	background-image: url(images/pausebutton.png);
+	position: absolute;
+	top: 55px;
+	left: 35px;
+	width: 20px;
+	height: 20px;
+	background-size: contain;
+	background-color: transparent;
+	border:none;
 }

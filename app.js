@@ -12,7 +12,8 @@ var diceBtn = document.querySelector("#dice-Btn")
 var diceResults = document.querySelector("#dice-result")
 var marioEnding = document.querySelector("#marioWin")
 var bowserEnding = document.querySelector("#bowserWin")
-var musicBgm = document.querySelector(".music")
+var musicBgm = document.querySelector(".musicPlay")
+var musicPause = document.querySelector(".musicPause")
 var audio = new Audio("sounds/mario-bros-theme.mp3")
 //another method, shorter/efficient
 // var winningConditions = [
@@ -347,8 +348,12 @@ function turnoffResult() {
 }
 
 //playing the music
-function playBgm(){
+function playBgm() {
     audio.play()
+}
+
+function pauseBgm() {
+    audio.pause()
 }
 
 
@@ -360,3 +365,4 @@ allSquares.forEach(function(square) {
 nextRoundBtn.addEventListener("click", handleNextRound)
 resetBtn.addEventListener("click", handleReset)
 musicBgm.addEventListener("click", playBgm)
+musicPause.addEventListener("click", pauseBgm)
