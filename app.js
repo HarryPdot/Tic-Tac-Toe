@@ -280,6 +280,8 @@ function handleReset () {
         nextRoundBtn.style.visibility = "hidden"
         moveMario.style.display = "inline-block"
         moveBowser.style.display = "inline-block"
+        bowserEnding.style.display = "none"
+        marioEnding.style.display = "none"
         moveBowser1()
         moveMario1()
     }
